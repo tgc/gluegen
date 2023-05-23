@@ -26,6 +26,9 @@
            #define GLIBC_COMPAT_SYMBOL(FFF) __asm__(".symver " #FFF "," #FFF "@GLIBC_2.4");
             */
            #define GLIBC_COMPAT_SYMBOL(FFF)
+        #elif defined(__PPC64__)
+           /* not versioned on el8/ppc64le */
+           #define GLIBC_COMPAT_SYMBOL(FFF)
         #elif defined(__amd64__)
            #define GLIBC_COMPAT_SYMBOL(FFF) __asm__(".symver " #FFF "," #FFF "@GLIBC_2.2.5");
         #else
